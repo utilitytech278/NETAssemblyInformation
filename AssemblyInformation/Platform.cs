@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace AssemblyInformation 
 {
@@ -28,6 +29,70 @@ namespace AssemblyInformation
         IMAGE_FILE_MACHINE_WCEMIPSV2 = 0x169,
     }
     // ReSharper restore InconsistentNaming
+
+    // Taken from .NET Framework versions newer than 4.0 to add support for Preferred32Bit.
+    /// <summary>
+    /// Identifies the nature of the code in an executable file.
+    /// </summary>
+    [Serializable]
+    [Flags]
+    [ComVisible(true)]
+    public enum PortableExecutableKindsNew
+    {
+        /// <summary>
+        /// The file is not in portable executable (PE) file format.
+        /// </summary>
+        NotAPortableExecutableImage = 0,
+        /// <summary>
+        /// The executable contains only Microsoft intermediate language (MSIL), and
+        ///     is therefore neutral with respect to 32-bit or 64-bit platforms.
+        /// </summary>
+        ILOnly = 1,
+        /// <summary>
+        /// The executable can be run on a 32-bit platform, or in the 32-bit Windows
+        ///     on Windows (WOW) environment on a 64-bit platform.
+        /// </summary>
+        Required32Bit = 2,
+        /// <summary>
+        /// The executable requires a 64-bit platform.
+        /// </summary>
+        PE32Plus = 4,
+        /// <summary>
+        /// The executable contains pure unmanaged code.
+        /// </summary>
+        Unmanaged32Bit = 8,
+        /// <summary>
+        /// The executable is platform-agnostic but should be run on a 32-bit platform whenever
+        ///     possible.
+        /// </summary>
+        Preferred32Bit = 16,
+    }
+
+    // Taken from .NET Framework versions newer than 4.0 to add support for ARM.
+    /// <summary>
+    /// Identifies the platform targeted by an executable.
+    /// </summary>
+    [Serializable]
+    [ComVisible(true)]
+    public enum ImageFileMachineNew
+    {
+        /// <summary>
+        /// Targets a 32-bit Intel processor.
+        /// </summary>
+        I386 = 332,
+        /// <summary>
+        /// Targets an ARM processor.
+        /// </summary>
+        ARM = 452,
+        /// <summary>
+        /// Targets a 64-bit Intel processor.
+        /// </summary>
+        IA64 = 512,
+        /// <summary>
+        /// Targets a 64-bit AMD processor.
+        /// </summary>
+        AMD64 = 34404,
+    }
 
     class Platform 
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.IO;
+using System.Linq;
+using System.Runtime.Versioning;
+using System.Reflection;
 
 namespace AssemblyInformation 
 {
@@ -22,8 +22,8 @@ namespace AssemblyInformation
         public Assembly Assembly { get; private set; }
         public DebuggableAttribute.DebuggingModes? DebuggingFlags { get; private set; }
 
-        static readonly Dictionary<PortableExecutableKinds, string> PortableExecutableKindsNames = new Dictionary<PortableExecutableKinds, string>();
-        static readonly Dictionary<ImageFileMachine, string> ImageFileMachineNames = new Dictionary<ImageFileMachine, string>();
+        static readonly Dictionary<PortableExecutableKindsNew, string> PortableExecutableKindsNames = new Dictionary<PortableExecutableKindsNew, string>();
+        static readonly Dictionary<ImageFileMachineNew, string> ImageFileMachineNames = new Dictionary<ImageFileMachineNew, string>();
 
         public static readonly List<string> SystemAssemblies = new List<string>()
                                                                     {
@@ -34,17 +34,19 @@ namespace AssemblyInformation
                                                                         "PresentationFramework",
                                                                         "Microsoft.VisualC"
                                                                     };
-        static AssemblyInformationLoader ()
+        static AssemblyInformationLoader()
         {
-            PortableExecutableKindsNames[PortableExecutableKinds.ILOnly] = "Contains only Microsoft intermediate language (MSIL), and is therefore neutral with respect to 32-bit or 64-bit platforms.";
-            PortableExecutableKindsNames[PortableExecutableKinds.NotAPortableExecutableImage] = "Not in portable executable (PE) file format.";
-            PortableExecutableKindsNames[PortableExecutableKinds.PE32Plus] = "Requires a 64-bit platform.";
-            PortableExecutableKindsNames[PortableExecutableKinds.Required32Bit] = "Can be run on a 32-bit platform, or in the 32-bit Windows on Windows (WOW) environment on a 64-bit platform.";
-            PortableExecutableKindsNames[PortableExecutableKinds.Unmanaged32Bit] = "Contains pure unmanaged code.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.ILOnly] = "Contains only Microsoft intermediate language (MSIL), and is therefore neutral with respect to 32-bit or 64-bit platforms.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.NotAPortableExecutableImage] = "Not in portable executable (PE) file format.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.PE32Plus] = "Requires a 64-bit platform.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.Preferred32Bit] = "Platform-agnostic but should be run on a 32-bit platform whenever possible.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.Required32Bit] = "Can be run on a 32-bit platform, or in the 32-bit Windows on Windows (WOW) environment on a 64-bit platform.";
+            PortableExecutableKindsNames[PortableExecutableKindsNew.Unmanaged32Bit] = "Contains pure unmanaged code.";
 
-            ImageFileMachineNames[ImageFileMachine.I386] = "Targets a 32-bit Intel processor.";
-            ImageFileMachineNames[ImageFileMachine.IA64] = "Targets a 64-bit Intel processor.";
-            ImageFileMachineNames[ImageFileMachine.AMD64] = "Targets a 64-bit AMD processor.";
+            ImageFileMachineNames[ImageFileMachineNew.I386] = "Targets a 32-bit Intel processor.";
+            ImageFileMachineNames[ImageFileMachineNew.ARM] = "Targets an ARM processor.";
+            ImageFileMachineNames[ImageFileMachineNew.IA64] = "Targets a 64-bit Intel processor.";
+            ImageFileMachineNames[ImageFileMachineNew.AMD64] = "Targets a 64-bit AMD processor.";
         }
 
         public AssemblyInformationLoader(Assembly assembly)
@@ -55,7 +57,8 @@ namespace AssemblyInformation
 
         void LoadInformation()
         {
-            DebuggableAttribute debugAttribute = Assembly.GetCustomAttributes(false).OfType<DebuggableAttribute>().FirstOrDefault();
+            object[] assemblyAttributes = Assembly.GetCustomAttributes(false);
+            DebuggableAttribute debugAttribute = assemblyAttributes.OfType<DebuggableAttribute>().FirstOrDefault();
 
             var modules = Assembly.GetModules(false);
             if (modules.Length > 0) 
@@ -72,15 +75,15 @@ namespace AssemblyInformation
                         {
                             AssemblyKind += Environment.NewLine;
                         }
-                        AssemblyKind += "- " + PortableExecutableKindsNames[kind];
+                        AssemblyKind += "- " + PortableExecutableKindsNames[(PortableExecutableKindsNew)kind];
                     }
                 }
                 //assemblyKindTextBox.Text = PortableExecutableKindsNames[portableExecutableKinds];
-                TargetProcessor = ImageFileMachineNames[imageFileMachine];
+                TargetProcessor = ImageFileMachineNames[(ImageFileMachineNew)imageFileMachine];
 
                 //Any CPU builds are reported as 32bit. 
                 //32bit builds will have more value for PortableExecutableKinds
-                if(imageFileMachine == ImageFileMachine.I386 && portableExecutableKinds == PortableExecutableKinds.ILOnly)
+                if (imageFileMachine == ImageFileMachine.I386 && portableExecutableKinds == PortableExecutableKinds.ILOnly)
                 {
                     TargetProcessor = "AnyCPU";
                 }
@@ -106,7 +109,8 @@ namespace AssemblyInformation
 
             AssemblyFullName = Assembly.FullName;
 
-            FrameWorkVersion = Assembly.ImageRuntimeVersion;
+            List<TargetFrameworkAttribute> targetFrameworkAttributes = assemblyAttributes.OfType<TargetFrameworkAttribute>().ToList();
+            FrameWorkVersion = targetFrameworkAttributes.Count == 0 ? Assembly.ImageRuntimeVersion : targetFrameworkAttributes[0].FrameworkDisplayName.Replace(".NET Framework ", "");
         }
     }
 
