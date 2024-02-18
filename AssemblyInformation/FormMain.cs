@@ -136,7 +136,7 @@ namespace AssemblyInformation
                         Trace.WriteLine(String.Format("{0} is already a parent of {1}", assemblyName, treeNode.Name));
                     }
                 }
-                if (AssemblyInformationLoader.SystemAssemblies.Where(p => assemblyName.StartsWith(p)).Count() == 0)
+                if (!AssemblyInformationLoader.SystemAssemblies.Any(p => assemblyName.StartsWith(p)))
                 {
                     node.Nodes.Add(new TreeNode(Loading));
                 }
@@ -277,7 +277,7 @@ namespace AssemblyInformation
 			    Binary binary = e.Node.Tag as Binary;
                 if(binary == null) return;
 
-                if (AssemblyInformationLoader.SystemAssemblies.Where(p => binary.FullName.StartsWith(p)).Count() > 0)
+                if (AssemblyInformationLoader.SystemAssemblies.Any(p => binary.FullName.StartsWith(p)))
                 {
                     e.Node.Nodes.Clear();
                     return;

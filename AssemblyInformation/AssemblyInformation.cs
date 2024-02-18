@@ -277,7 +277,7 @@ namespace AssemblyInformation
                 if (assemblyMap.ContainsKey(name)) continue;
                 assemblyMap[name] = new Binary(referencedAssembly);
                 
-                if(AssemblyInformationLoader.SystemAssemblies.Where(p => referencedAssembly.FullName.StartsWith(p)).Count() >0)
+                if(AssemblyInformationLoader.SystemAssemblies.Any(p => referencedAssembly.FullName.StartsWith(p)))
                 {
                     assemblyMap[name].IsSystemBinary = true;
                     continue;
@@ -332,7 +332,7 @@ namespace AssemblyInformation
                     List<string> loadErrors;
                     var dependencies = dw.FindDependencies(assembly, false, out loadErrors);
                     if (null == dependencies) continue;
-                    if (dependencies.Where(p => String.Compare(p.FullName, testAssembly.FullName, StringComparison.OrdinalIgnoreCase) == 0).Count() > 0) 
+                    if (dependencies.Any(p => String.Compare(p.FullName, testAssembly.FullName, StringComparison.OrdinalIgnoreCase) == 0)) 
                     {
                         referringAssemblies.Add(binary.Remove(0, baseDirPathLength));
                     }
