@@ -110,7 +110,24 @@ namespace AssemblyInformation
             AssemblyFullName = Assembly.FullName;
 
             List<TargetFrameworkAttribute> targetFrameworkAttributes = assemblyAttributes.OfType<TargetFrameworkAttribute>().ToList();
-            FrameWorkVersion = targetFrameworkAttributes.Count == 0 ? Assembly.ImageRuntimeVersion : targetFrameworkAttributes[0].FrameworkDisplayName.Replace(".NET Framework ", "");
+            if (targetFrameworkAttributes.Count == 0)
+            {
+                FrameWorkVersion = ".NET CLR " + (Assembly.ImageRuntimeVersion.StartsWith("v", StringComparison.OrdinalIgnoreCase) && Assembly.ImageRuntimeVersion.Length > 1 ? Assembly.ImageRuntimeVersion.Substring(1) : Assembly.ImageRuntimeVersion);
+            }
+            else
+            {
+                FrameWorkVersion = targetFrameworkAttributes[0].FrameworkDisplayName;
+                if (String.IsNullOrWhiteSpace(FrameWorkVersion))
+                {
+                    FrameWorkVersion = targetFrameworkAttributes[0].FrameworkName;
+                    const string netStandard = ".NETStandard,Version=v";
+                    if (FrameWorkVersion.StartsWith(netStandard, StringComparison.Ordinal) && FrameWorkVersion.Length > netStandard.Length)
+                    {
+                        int indexOfVersion = FrameWorkVersion.IndexOf("=v", StringComparison.Ordinal);
+                        FrameWorkVersion = ".NET Standard " + FrameWorkVersion.Substring(indexOfVersion + 2);
+                    }
+                }
+            }
         }
     }
 
