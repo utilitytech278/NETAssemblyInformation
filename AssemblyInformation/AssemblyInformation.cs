@@ -127,6 +127,14 @@ namespace AssemblyInformation
                         FrameWorkVersion = ".NET Standard " + FrameWorkVersion.Substring(indexOfVersion + 2);
                     }
                 }
+                else if (FrameWorkVersion == ".NET Framework 4")
+                {
+                    FrameWorkVersion = ".NET Framework 4.0";
+                }
+                else if (FrameWorkVersion.StartsWith(".NET Framework 4 "))
+                {
+                    FrameWorkVersion = FrameWorkVersion.Replace(".NET Framework 4 ", ".NET Framework 4.0 ");
+                }
             }
         }
     }

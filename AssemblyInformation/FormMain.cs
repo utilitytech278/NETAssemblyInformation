@@ -141,6 +141,34 @@ namespace AssemblyInformation
                     node.Nodes.Add(new TreeNode(Loading));
                 }
             }
+
+            if (frameWorkVersion.Text.StartsWith(".NET CLR 2.0", StringComparison.Ordinal))
+            {
+                var netVersions = new HashSet<string>();
+                foreach (TreeNode systemTreeNode in dependencyTreeView.Nodes.Cast<TreeNode>().Where(x => x.Text.StartsWith("System", StringComparison.Ordinal)))
+                {
+                    const string versionSearch = ", Version=";
+                    int indexOfVersion = systemTreeNode.Text.IndexOf(versionSearch, StringComparison.Ordinal);
+                    if (indexOfVersion != -1)
+                    {
+                        int indexOfComma = systemTreeNode.Text.IndexOf(", ", indexOfVersion + versionSearch.Length, StringComparison.Ordinal);
+                        netVersions.Add(systemTreeNode.Text.Substring(indexOfVersion + versionSearch.Length, indexOfComma - (indexOfVersion + versionSearch.Length)));
+                    }
+                }
+
+                if (netVersions.Any(x => x.StartsWith("3.5", StringComparison.Ordinal)))
+                {
+                    frameWorkVersion.Text = ".NET Framework 3.5";
+                }
+                else if (netVersions.Any(x => x.StartsWith("3.0", StringComparison.Ordinal)))
+                {
+                    frameWorkVersion.Text = ".NET Framework 3.0";
+                }
+                else if (netVersions.Any(x => x.StartsWith("2.0", StringComparison.Ordinal)))
+                {
+                    frameWorkVersion.Text = ".NET Framework 2.0";
+                }
+            }
         }
 
         private void AboutToolStripMenuItem1Click(object sender, EventArgs e)
