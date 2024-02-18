@@ -30,7 +30,6 @@ namespace AssemblyInformation
             assemblyInformation = new AssemblyInformationLoader(assemb);
             referringAssemblyFolderTextBox.Text = Path.GetDirectoryName(_mAssembly.Location);
             AssemblyFormMap[assemb.FullName] = this;
-            FormClosing += FormMainFormClosing;
         }
 
         private void FormMainLoad(object sender, EventArgs e) 
@@ -103,6 +102,12 @@ namespace AssemblyInformation
             directDependencies = dependencyWalker.FindDependencies(_mAssembly, false, out errors).ToList();
 
             FillAssemblyReferences(directDependencies);
+        }
+
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            // Without this, focus is visibly on the first TextBox.
+            lblCompilation.Focus();
         }
 
         void FormMainFormClosing(object sender, FormClosingEventArgs e)

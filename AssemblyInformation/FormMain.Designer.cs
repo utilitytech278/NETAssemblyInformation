@@ -432,7 +432,9 @@
             this.MinimumSize = new System.Drawing.Size(154, 110);
             this.Name = "FormMain";
             this.Text = "Assembly Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
             this.Load += new System.EventHandler(this.FormMainLoad);
+            this.Shown += new System.EventHandler(this.FormMain_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
