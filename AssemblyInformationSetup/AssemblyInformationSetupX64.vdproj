@@ -150,7 +150,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.21022       "
+                "FrameworkVersion" = "8:3.5.21022        "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -162,7 +162,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AssemblyInformation, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:AssemblyInformation, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_C7CE2D605EEB4D2B8F615FA0654C76BB"
@@ -193,7 +193,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AssemblyInformationx64, Version=2.1.0.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:AssemblyInformationx64, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
                     "_EF39A22362244B7FB1385E07D9A30517"
@@ -295,22 +295,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Assembly Information v2.1"
-        "ProductCode" = "8:{54CFDA1E-F5A1-45BB-8833-F814B90CC288}"
-        "PackageCode" = "8:{1CCACB62-0C75-4214-8F6E-F1295A803F98}"
+        "ProductName" = "8:Assembly Information"
+        "ProductCode" = "8:{FDE63A1B-58D1-4501-9457-7B41B8E2FFD5}"
+        "PackageCode" = "8:{BBBD1DAA-C73E-4BAF-B019-73B90F15A943}"
         "UpgradeCode" = "8:{92FFC3AD-C7D1-4657-B460-89F248CA31CA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.1.0"
+        "ProductVersion" = "8:3.0.0"
         "Manufacturer" = "8:.NET Tools"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://assemblyinformation.codeplex.com"
-        "Title" = "8:Assembly Information 2.1"
+        "Title" = "8:Assembly Information"
         "Subject" = "8:.NET Tools"
-        "ARPCONTACT" = "8:Rotem Bloom & Ashutosh Bhawasinka"
+        "ARPCONTACT" = "8:Rotem Bloom, Ashutosh Bhawasinka, utilitytech278"
         "Keywords" = "8:.NET Tools"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:http://assemblyinformation.codeplex.com"
