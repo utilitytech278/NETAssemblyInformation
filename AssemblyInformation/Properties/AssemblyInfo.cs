@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle(".NET Assembly Information")]
-[assembly: AssemblyDescription("Displays information on a .NET Assembly (DLL).  Developed by Rotem Bloom.  Version 1.1 supports .NET 4.0.\r\n\r\nContributed by Ashutosh Bhawasinka (www.ashusoft.com) - Added Assembly Kind, target platform, dependency tree, recursive dependency list and launching Assembly Information for dependency.")]
+[assembly: AssemblyDescription("Displays information on a .NET Assembly (i.e. EXE, DLL). Supports all versions of the .NET Framework and .NET Standard. .NET Core and .NET 5.0+ are not supported.\r\n\r\nOriginally developed by Rotem Bloom.\r\n\r\nContributed by Ashutosh Bhawasinka (www.ashusoft.com) - Added Assembly Kind, target platform, dependency tree, recursive dependency list and launching Assembly Information for dependency.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AssemblyInformation")]
-[assembly: AssemblyCopyright("Copyright ©  Rotem Bloom & Ashutosh Bhawasinka 2008-2012")]
+[assembly: AssemblyCopyright("Copyright © 2008-2024")]
+[assembly: AssemblyCompany("Rotem Bloom, Ashutosh Bhawasinka, utilitytech278")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
