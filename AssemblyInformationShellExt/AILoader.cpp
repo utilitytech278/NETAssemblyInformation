@@ -6,7 +6,6 @@
 #include "AILoader.h"
 #include "AssemblyInformation_i.h"
 //#include "ProgressDlg.h"
-#include "M:\Ashutosh\My Documents\Visual Studio 2008\Projects\Common\CPP\Debug.h"
 
 TCHAR CAILoader::szAIAppPath[_MAX_ENV];
 
@@ -15,7 +14,6 @@ TCHAR CAILoader::szAIAppPath[_MAX_ENV];
 
 CAILoader::CAILoader()
 {
-	TRACE_FUNCTION(_T("CAILoader::CAILoader"));
 	m_hRegBmp = LoadBitmap ( _AtlModule.GetModuleInstance(),
 		MAKEINTRESOURCE(IDB_REGISTERBMP) );
 
@@ -25,7 +23,6 @@ CAILoader::CAILoader()
 
 CAILoader::~CAILoader()
 {
-	TRACE_FUNCTION(_T("CAILoader::~CAILoader"));
 	if ( NULL != m_hRegBmp )
 		DeleteObject ( m_hRegBmp );
 
@@ -48,7 +45,6 @@ CAILoader::~CAILoader()
 
 HRESULT CAILoader::Initialize (LPCITEMIDLIST pidlFolder, LPDATAOBJECT pDO, HKEY hProgID )
 {
-	TRACE_FUNCTION(_T("CAILoader::Initialize"));
 	TCHAR     szFile[MAX_PATH]/*, szCurrDir[MAX_PATH]*/;
 	UINT      uNumFiles;
 	HDROP     hdrop;
@@ -190,7 +186,6 @@ HRESULT CAILoader::Initialize (LPCITEMIDLIST pidlFolder, LPDATAOBJECT pDO, HKEY 
 
 HRESULT CAILoader::QueryContextMenu (HMENU hmenu, UINT uMenuIndex, UINT uidFirstCmd, UINT uidLastCmd, UINT uFlags )
 {
-	TRACE_FUNCTION(_T("CAILoader::QueryContextMenu"));
 	UINT uCmdID = uidFirstCmd;
 
 	// If the flags include CMF_DEFAULTONLY then we shouldn't do anything.
@@ -233,7 +228,6 @@ HRESULT CAILoader::QueryContextMenu (HMENU hmenu, UINT uMenuIndex, UINT uidFirst
 HRESULT CAILoader::GetCommandString (
 	UINT_PTR uCmdID, UINT uFlags, UINT* puReserved, LPSTR szName, UINT cchMax )
 {
-	TRACE_FUNCTION(_T("CAILoader::GetCommandString"));
 	USES_CONVERSION;
 	LPCTSTR szPrompt;
 
@@ -304,7 +298,6 @@ HRESULT CAILoader::GetCommandString (
 
 HRESULT CAILoader::InvokeCommand ( LPCMINVOKECOMMANDINFO pInfo )
 {
-	TRACE_FUNCTION(_T("CAILoader::InvokeCommand"));
 	// If lpVerb really points to a string, ignore this function call and bail out.  
 	if ( 0 != HIWORD( pInfo->lpVerb ) )
 		return E_INVALIDARG;

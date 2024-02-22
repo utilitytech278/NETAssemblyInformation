@@ -222,7 +222,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Visual Studio 2008\Projects\Common\CPP\Debug.cpp" />
     <ClCompile Include="AILoader.cpp" />
     <ClCompile Include="AssemblyInformation.cpp" />
     <ClCompile Include="AssemblyInformation_i.c">
@@ -247,7 +246,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Visual Studio 2008\Projects\Common\CPP\Debug.h" />
     <ClInclude Include="AILoader.h" />
     <ClInclude Include="AssemblyInformation_i.h" />
     <ClInclude Include="Resource.h" />

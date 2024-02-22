@@ -6,7 +6,6 @@
 #include "AssemblyInformation_i.h"
 #include "atlbase.h"
 #include "AILoader.h"
-#include "M:\Ashutosh\My Documents\Visual Studio 2008\Projects\Common\CPP\Debug.h"
 
 using namespace ATL;
 class CComModule _AtlModule;
@@ -31,7 +30,6 @@ HMODULE GetCurrentModule()
 // DLL Entry Point
 extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
-	TRACE_FUNCTION(_T("DllMain"));
 	hInstance;
 	if ( dwReason == DLL_PROCESS_ATTACH )
 	{
@@ -42,7 +40,6 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
 		PathRemoveFileSpec ( szPath );
 
 		PathCombine(CAILoader::szAIAppPath, szPath, ASSEMBLY_INFORMATION_EXE);
-		Debug(0, _T("AI Launcher path is <%s>"), CAILoader::szAIAppPath);
 		ATLTRACE("AI Launcher path is <%s>\n", CAILoader::szAIAppPath);
 	
 		_AtlModule.Init(ObjectMap, hInstance, &LIBID_AssemblyInformationLib);
