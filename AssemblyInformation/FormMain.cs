@@ -149,7 +149,7 @@ namespace AssemblyInformation
 
             if (frameWorkVersion.Text.StartsWith(".NET CLR 2.0", StringComparison.Ordinal))
             {
-                var netVersions = new HashSet<string>();
+                var netVersions = new List<string>();
                 foreach (TreeNode systemTreeNode in dependencyTreeView.Nodes.Cast<TreeNode>().Where(x => x.Text.StartsWith("System", StringComparison.Ordinal)))
                 {
                     const string versionSearch = ", Version=";
@@ -160,6 +160,7 @@ namespace AssemblyInformation
                         netVersions.Add(systemTreeNode.Text.Substring(indexOfVersion + versionSearch.Length, indexOfComma - (indexOfVersion + versionSearch.Length)));
                     }
                 }
+                netVersions = netVersions.Distinct().ToList();
 
                 if (netVersions.Any(x => x.StartsWith("3.5", StringComparison.Ordinal)))
                 {
@@ -358,7 +359,7 @@ namespace AssemblyInformation
 
 	    private void referringAssemblyFolderSearchButton_Click(object sender, EventArgs e)
 		{
-			if (!String.IsNullOrWhiteSpace(referringAssemblyFolderTextBox.Text) &&
+			if (!referringAssemblyFolderTextBox.Text.IsNullOrWhiteSpace() &&
                 Directory.Exists(referringAssemblyFolderTextBox.Text))
 			{
                 FindReferringAssembliesForm frm = new FindReferringAssembliesForm();

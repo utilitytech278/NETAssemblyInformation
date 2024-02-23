@@ -31,7 +31,6 @@ namespace AssemblyInformation
                 {
                     if (!spanProcess)
                     {
-                        
                         //required to change directory for loading referenced assemblies
                         Environment.CurrentDirectory = Path.GetDirectoryName(filePath);
                         Assembly assembly = Assembly.LoadFile(assemblyullName);
@@ -42,11 +41,18 @@ namespace AssemblyInformation
                     }
                     else
                     {
-                        if(filePathIs64Bit && !Environment.Is64BitOperatingSystem)
+                        if (filePathIs64Bit)
                         {
-                            MessageBox.Show(Resource.BitnessMismatch, Resource.AppName,
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            #if !NET40
+                            if (!OSBitCheck.Is64BitOperatingSystem())
+                            #else
+                            if (!Environment.Is64BitOperatingSystem)
+                            #endif
+                            {
+                                MessageBox.Show(Resource.BitnessMismatch, Resource.AppName,
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                         }
                         string launchPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
                         Debug.Assert(launchPath != null);

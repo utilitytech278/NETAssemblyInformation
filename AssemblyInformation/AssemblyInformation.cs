@@ -117,7 +117,7 @@ namespace AssemblyInformation
             else
             {
                 FrameWorkVersion = targetFrameworkAttributes[0].FrameworkDisplayName;
-                if (String.IsNullOrWhiteSpace(FrameWorkVersion))
+                if (FrameWorkVersion.IsNullOrWhiteSpace())
                 {
                     FrameWorkVersion = targetFrameworkAttributes[0].FrameworkName;
                     const string netStandard = ".NETStandard,Version=v";

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+#if !NET40
+using System.Reflection;
+#endif
 using System.Runtime.InteropServices;
 
 namespace AssemblyInformation 
@@ -136,19 +139,21 @@ namespace AssemblyInformation
                     return null;
             }
         }
+
         public static bool IsRunningAs64Bit 
         {
             get
             {
-                return Environment.Is64BitProcess;
-                //var currentAssembly = Assembly.GetCallingAssembly();
-                //PortableExecutableKinds kinds;
-                //ImageFileMachine imgFileMachine;
-                //currentAssembly.ManifestModule.GetPEKind(out kinds, out imgFileMachine);
+                #if !NET40
+                Assembly currentAssembly = Assembly.GetCallingAssembly();
+                PortableExecutableKinds kinds;
+                ImageFileMachine imgFileMachine;
+                currentAssembly.ManifestModule.GetPEKind(out kinds, out imgFileMachine);
 
-                //if (kinds == PortableExecutableKinds.NotAPortableExecutableImage) return false;
-                //var is64Bit = ((kinds & PortableExecutableKinds.PE32Plus) == PortableExecutableKinds.PE32Plus);
-                //return is64Bit;
+                return kinds != PortableExecutableKinds.NotAPortableExecutableImage && (kinds & PortableExecutableKinds.PE32Plus) == PortableExecutableKinds.PE32Plus;
+                #else
+                return Environment.Is64BitProcess;
+                #endif
             }
         }
     }
