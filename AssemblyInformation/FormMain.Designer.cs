@@ -75,7 +75,6 @@
             // 
             this.lblCompilation.AutoSize = true;
             this.lblCompilation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblCompilation.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblCompilation.Location = new System.Drawing.Point(10, 37);
             this.lblCompilation.Name = "lblCompilation";
             this.lblCompilation.Size = new System.Drawing.Size(76, 13);
@@ -88,7 +87,6 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblFullName.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblFullName.Location = new System.Drawing.Point(10, 126);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(67, 13);
@@ -223,7 +221,6 @@
             // 
             this.lblReferences.AutoSize = true;
             this.lblReferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblReferences.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblReferences.Location = new System.Drawing.Point(10, 168);
             this.lblReferences.Name = "lblReferences";
             this.lblReferences.Size = new System.Drawing.Size(76, 13);
