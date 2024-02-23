@@ -14,8 +14,8 @@ TCHAR CAILoader::szAIAppPath[_MAX_ENV];
 
 CAILoader::CAILoader()
 {
-	m_hRegBmp = LoadBitmap ( _AtlModule.GetModuleInstance(),
-		MAKEINTRESOURCE(IDB_REGISTERBMP) );
+	m_hRegBmp = (HBITMAP)LoadImage ( _AtlModule.GetModuleInstance(),
+		MAKEINTRESOURCE(IDB_REGISTERBMP), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION );
 
 	/*m_hUnregBmp = LoadBitmap ( _Module.GetModuleInstance(),
 		MAKEINTRESOURCE(IDB_UNREGISTERBMP) );*/
