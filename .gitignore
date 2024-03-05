@@ -5,3 +5,10 @@ obj/
 *.dll
 *.msi
 *.user
+*.suo
+*.ncb
+*.asp
+SimpleExt.h
+SimpleExt_i.c
+SimpleExt_p.c
+dlldata.c

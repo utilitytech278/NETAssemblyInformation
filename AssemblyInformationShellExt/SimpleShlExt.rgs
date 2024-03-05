@@ -1,0 +1,33 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        ForceRemove {8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C} = s 'SimpleShlExt Class'
+        {
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+    NoRemove exefile
+    {
+        NoRemove ShellEx
+        {
+            NoRemove ContextMenuHandlers
+            {
+                ForceRemove SimpleShlExt = s '{8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C}'
+            }
+        }
+    }
+    NoRemove dllfile
+    {
+        NoRemove ShellEx
+        {
+            NoRemove ContextMenuHandlers
+            {
+                ForceRemove SimpleShlExt = s '{8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C}'
+            }
+        }
+    }
+}
