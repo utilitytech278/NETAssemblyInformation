@@ -123,7 +123,7 @@ STDMETHODIMP CSimpleShlExt::GetCommandString (
 HMODULE GetCurrentModule()
 {
     HMODULE hModule;
-    GetModuleHandleExA_new(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (LPCTSTR)GetCurrentModule, &hModule);
+    GetModuleHandleExA_new(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (LPCSTR)GetCurrentModule, &hModule);
     return hModule;
 }
 
@@ -154,17 +154,27 @@ STDMETHODIMP CSimpleShlExt::InvokeCommand ( LPCMINVOKECOMMANDINFO pCmdInfo )
             PathCombine(exePath, dllPath, ASSEMBLY_INFORMATION_EXE);
 
             // Add quotes to the path of the main executable so that it can be passed to ShellExecute.
-            TCHAR exePathQuotes[MAX_PATH + 4] = "\"";
+            TCHAR exePathQuotes[MAX_PATH + 4] = _T("\"");
+            #if defined(_UNICODE)
+            wcscat_s(exePathQuotes, exePath);
+            wcscat_s(exePathQuotes, _T("\""));
+            #else
             strcat_s(exePathQuotes, exePath);
-            strcat_s(exePathQuotes, "\"");
+            strcat_s(exePathQuotes, _T("\""));
+            #endif
 
             // Add quotes to the path of the right-clicked file so it can be passed to ShellExecute.
-            TCHAR parameters[MAX_PATH + 4] = "\"";
+            TCHAR parameters[MAX_PATH + 4] = _T("\"");
+            #if defined(_UNICODE)
+            wcscat_s(parameters, m_szFile);
+            wcscat_s(parameters, _T("\""));
+            #else
             strcat_s(parameters, m_szFile);
-            strcat_s(parameters, "\"");
+            strcat_s(parameters, _T("\""));
+            #endif
 
             // Launch Executable
-            ShellExecute(NULL, "open", exePath, parameters, NULL, SW_SHOW);
+            ShellExecute(NULL, _T("open"), exePath, parameters, NULL, SW_SHOW);
 
             return S_OK;
             break;
