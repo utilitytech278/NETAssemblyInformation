@@ -127,7 +127,7 @@ HMODULE GetCurrentModule()
     return hModule;
 }
 
-#if defined(_M_X64)
+#ifdef _M_X64
 #define ASSEMBLY_INFORMATION_EXE _T("AssemblyInformationx64.exe")
 #else
 #define ASSEMBLY_INFORMATION_EXE _T("AssemblyInformation.exe")
@@ -155,7 +155,7 @@ STDMETHODIMP CSimpleShlExt::InvokeCommand ( LPCMINVOKECOMMANDINFO pCmdInfo )
 
             // Add quotes to the path of the main executable so that it can be passed to ShellExecute.
             TCHAR exePathQuotes[MAX_PATH + 4] = _T("\"");
-            #if defined(_UNICODE)
+            #ifdef _UNICODE
             wcscat_s(exePathQuotes, exePath);
             wcscat_s(exePathQuotes, _T("\""));
             #else
@@ -165,7 +165,7 @@ STDMETHODIMP CSimpleShlExt::InvokeCommand ( LPCMINVOKECOMMANDINFO pCmdInfo )
 
             // Add quotes to the path of the right-clicked file so it can be passed to ShellExecute.
             TCHAR parameters[MAX_PATH + 4] = _T("\"");
-            #if defined(_UNICODE)
+            #ifdef _UNICODE
             wcscat_s(parameters, m_szFile);
             wcscat_s(parameters, _T("\""));
             #else
