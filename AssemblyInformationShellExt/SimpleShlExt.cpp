@@ -100,7 +100,7 @@ STDMETHODIMP CSimpleShlExt::GetCommandString (
     // supplied buffer.
     if ( uFlags & GCS_HELPTEXT )
     {
-        LPCTSTR szText = _T("This is the simple shell extension's help");
+        LPCTSTR szText = _T("Displays information on how the selected file was built, if it is a .NET assembly.");
 
         if ( uFlags & GCS_UNICODE )
         {
