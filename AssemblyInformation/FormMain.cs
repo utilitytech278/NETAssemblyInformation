@@ -270,7 +270,7 @@ namespace AssemblyInformation
                             assemblyName = name;
                         }
                     }
-                    catch (Exception) { }
+                    catch { }
                 }
             return assemblyName;
         }

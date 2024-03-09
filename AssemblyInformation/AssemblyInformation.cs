@@ -307,7 +307,7 @@ namespace AssemblyInformation
                                                    {StatusText = "Finding all binaries"});
                 FindAssemblies(new DirectoryInfo(directory), binaries, recursive);
             }
-            catch (Exception ex)
+            catch
             {
                 UpdateProgress(Resource.FailedToListBinaries, -2);
                 return null;

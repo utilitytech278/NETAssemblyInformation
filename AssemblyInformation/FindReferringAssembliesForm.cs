@@ -46,7 +46,7 @@ namespace AssemblyInformation
                 ReferringAssemblies = dw.FindReferringAssemblies(TestAssembly, DirectoryPath, Recursive);
                 UpdateStatus(this, new ReferringAssemblyStatusChangeEventArgs { StatusText = "", Progress = -3 });
             }
-            catch(Exception ex)
+            catch
             {
                 UpdateStatus(this, new ReferringAssemblyStatusChangeEventArgs { StatusText = Resource.FailedToListBinaries, Progress = -2 });
             }
