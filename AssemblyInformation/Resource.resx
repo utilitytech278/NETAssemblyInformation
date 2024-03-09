@@ -124,10 +124,10 @@
     <value>Finding binaries in '{0}'</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Assembly Information</value>
+    <value>.NET Assembly Information</value>
   </data>
   <data name="BitnessMismatch" xml:space="preserve">
-    <value>Can not load 64bit assembly on 32bit operating system.</value>
+    <value>Can not load a 64-bit assembly on a 32-bit operating system.</value>
   </data>
   <data name="FailedToListBinaries" xml:space="preserve">
     <value>Failed to list binaries.</value>
@@ -139,14 +139,14 @@
     <value>Failed to load DLL.  Error: {0}</value>
   </data>
   <data name="NotDotNetAssembly" xml:space="preserve">
-    <value>The assembly '{0}' is not a .Net assembly. Assembly Information supports only .Net assemblies/binaries.</value>
+    <value>The assembly '{0}' is not a .NET assembly. .NET Assembly Information supports only .NET assemblies/binaries.</value>
   </data>
   <data name="NotDotNetAssemblyErrorMessage" xml:space="preserve">
     <value>The module was expected to contain an assembly manifest</value>
   </data>
   <data name="UsageString" xml:space="preserve">
     <value>.NET Assembly Information
-Displays information on a .NET Assembly. Developed by Rotem Bloom, Ashutosh Bhawasinka, utilitytech278.
+Displays information on how a .NET Assembly was built. Developed by Rotem Bloom, Ashutosh Bhawasinka, utilitytech278.
 
 Usage:
 AssemblyInformation.exe &lt;assembly&gt;</value>

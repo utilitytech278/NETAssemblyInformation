@@ -79,7 +79,7 @@ STDMETHODIMP CSimpleShlExt::QueryContextMenu (
     if ( uFlags & CMF_DEFAULTONLY )
         return MAKE_HRESULT ( SEVERITY_SUCCESS, FACILITY_NULL, 0 );
 
-    InsertMenu ( hmenu, uMenuIndex, MF_BYPOSITION, uidFirstCmd, _T("Assembly Information") );
+    InsertMenu ( hmenu, uMenuIndex, MF_BYPOSITION, uidFirstCmd, _T(".NET Assembly Information") );
 
     // Set the menu item's icon.
     SetMenuItemBitmaps ( hmenu, uMenuIndex, MF_BYPOSITION, m_hIconBmp, NULL );

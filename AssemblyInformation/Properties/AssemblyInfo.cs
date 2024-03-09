@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle(".NET Assembly Information")]
-[assembly: AssemblyDescription("Displays information on a .NET Assembly (i.e. EXE, DLL). Supports all versions of the .NET Framework and .NET Standard. .NET Core and .NET 5.0+ are not supported.\r\n\r\nOriginally developed by Rotem Bloom.\r\n\r\nContributed by Ashutosh Bhawasinka (www.ashusoft.com) - Added Assembly Kind, target platform, dependency tree, recursive dependency list and launching Assembly Information for dependency.")]
+[assembly: AssemblyDescription("Displays information on how a .NET Assembly (i.e. EXE, DLL) was built. Supports all versions of the .NET Framework and .NET Standard. .NET Core and .NET 5.0+ are not supported.\r\n\r\nOriginally developed by Rotem Bloom.\r\n\r\nContributed by Ashutosh Bhawasinka (www.ashusoft.com) - Added Assembly Kind, target platform, dependency tree, recursive dependency list and launching Assembly Information for dependency.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyProduct("AssemblyInformation")]
 [assembly: AssemblyCopyright("Copyright © 2008-2024")]

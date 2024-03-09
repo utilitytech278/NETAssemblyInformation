@@ -79,7 +79,7 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assembly Information.
+        ///   Looks up a localized string similar to .NET Assembly Information.
         /// </summary>
         internal static string AppName {
             get {
@@ -88,7 +88,7 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can not load 64bit assembly on 32bit operating system..
+        ///   Looks up a localized string similar to Can not load a 64-bit assembly on a 32-bit operating system..
         /// </summary>
         internal static string BitnessMismatch {
             get {
@@ -124,7 +124,7 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The assembly &apos;{0}&apos; is not a .Net assembly. Assembly Information supports only .Net assemblies/binaries..
+        ///   Looks up a localized string similar to The assembly &apos;{0}&apos; is not a .NET assembly. .NET Assembly Information supports only .NET assemblies/binaries..
         /// </summary>
         internal static string NotDotNetAssembly {
             get {
@@ -143,7 +143,7 @@ namespace AssemblyInformation {
         
         /// <summary>
         ///   Looks up a localized string similar to .NET Assembly Information
-        ///Displays information on a .NET Assembly. Developed by Rotem Bloom, Ashutosh Bhawasinka, utilitytech278.
+        ///Displays information on how a .NET Assembly was built. Developed by Rotem Bloom, Ashutosh Bhawasinka, utilitytech278.
         ///
         ///Usage:
         ///AssemblyInformation.exe &lt;assembly&gt;.

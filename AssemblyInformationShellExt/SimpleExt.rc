@@ -68,12 +68,12 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription", "Assembly Information Shell Extension"
+            VALUE "FileDescription", ".NET Assembly Information Shell Extension"
             VALUE "FileVersion", "1.0.0.0"
-            VALUE "InternalName", "Assembly Information"
+            VALUE "InternalName", ".NET Assembly Information"
             VALUE "LegalCopyright", "Copyright 2005-2024 Ashutosh Bhawasinka, utilitytech278"
             VALUE "OriginalFilename", "AssemblyInformation.dll"
-            VALUE "ProductName", "Assembly Information"
+            VALUE "ProductName", ".NET Assembly Information"
             VALUE "ProductVersion", "1.0.0.0"
         END
     END

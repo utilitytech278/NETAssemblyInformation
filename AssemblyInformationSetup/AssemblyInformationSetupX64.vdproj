@@ -150,7 +150,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.21022        "
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.0,Profile=Client"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -248,7 +248,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_0C3DAA4F28364D75B11E75E2B1A2A332"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -295,7 +295,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Assembly Information"
+        "ProductName" = "8:.NET Assembly Information"
         "ProductCode" = "8:{FDE63A1B-58D1-4501-9457-7B41B8E2FFD5}"
         "PackageCode" = "8:{BBBD1DAA-C73E-4BAF-B019-73B90F15A943}"
         "UpgradeCode" = "8:{92FFC3AD-C7D1-4657-B460-89F248CA31CA}"
@@ -308,7 +308,7 @@
         "Manufacturer" = "8:.NET Tools"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://assemblyinformation.codeplex.com"
-        "Title" = "8:Assembly Information"
+        "Title" = "8:.NET Assembly Information"
         "Subject" = "8:.NET Tools"
         "ARPCONTACT" = "8:Rotem Bloom, Ashutosh Bhawasinka, utilitytech278"
         "Keywords" = "8:.NET Tools"
@@ -499,8 +499,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -688,8 +688,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }

@@ -428,7 +428,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(154, 110);
             this.Name = "FormMain";
-            this.Text = "Assembly Information";
+            this.Text = ".NET Assembly Information";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
             this.Load += new System.EventHandler(this.FormMainLoad);
             this.Shown += new System.EventHandler(this.FormMain_Shown);
