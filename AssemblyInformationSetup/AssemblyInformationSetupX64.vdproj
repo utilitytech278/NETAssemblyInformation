@@ -198,11 +198,11 @@
                 {
                     "_EF39A22362244B7FB1385E07D9A30517"
                     {
-                    "Name" = "8:AssemblyInformationX64.exe"
+                    "Name" = "8:AssemblyInformationx64.exe"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\bin\\Release\\AssemblyInformationX64.exe"
+            "SourcePath" = "8:..\\bin\\Release\\AssemblyInformationx64.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0C3DAA4F28364D75B11E75E2B1A2A332"
