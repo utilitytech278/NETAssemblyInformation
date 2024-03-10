@@ -177,17 +177,12 @@ namespace AssemblyInformation
             }
         }
 
-        private void AboutToolStripMenuItem1Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItemClick(object sender, EventArgs e)
         {
             using (var about = new AboutBox())
             {
                 about.ShowDialog();
             }
-        }
-
-        private void ExitToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void LblCompilationMouseEnter(object sender, EventArgs e)
