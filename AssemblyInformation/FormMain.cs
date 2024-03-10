@@ -179,8 +179,10 @@ namespace AssemblyInformation
 
         private void AboutToolStripMenuItem1Click(object sender, EventArgs e)
         {
-            AboutBox about = new AboutBox();
-            about.ShowDialog();
+            using (var about = new AboutBox())
+            {
+                about.ShowDialog();
+            }
         }
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
@@ -362,20 +364,22 @@ namespace AssemblyInformation
 			if (!referringAssemblyFolderTextBox.Text.IsNullOrWhiteSpace() &&
                 Directory.Exists(referringAssemblyFolderTextBox.Text))
 			{
-                FindReferringAssembliesForm frm = new FindReferringAssembliesForm();
-                frm.DirectoryPath = referringAssemblyFolderTextBox.Text;
-                frm.TestAssembly = _mAssembly;
-                frm.Recursive = true;
-                if (frm.ShowDialog() == DialogResult.OK) 
+                using (var frm = new FindReferringAssembliesForm())
                 {
-                    var binaries = frm.ReferringAssemblies;
-                    if (null == binaries) return;
-                    referringAssembliesListtBox.Items.Clear();
-                    foreach (var binary in binaries)
+                    frm.DirectoryPath = referringAssemblyFolderTextBox.Text;
+                    frm.TestAssembly = _mAssembly;
+                    frm.Recursive = true;
+                    if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        referringAssembliesListtBox.Items.Add(binary);
-					}
-				}
+                        var binaries = frm.ReferringAssemblies;
+                        if (null == binaries) return;
+                        referringAssembliesListtBox.Items.Clear();
+                        foreach (var binary in binaries)
+                        {
+                            referringAssembliesListtBox.Items.Add(binary);
+                        }
+                    }
+                }
 			}
 		}
 
