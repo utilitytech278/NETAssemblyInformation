@@ -12,15 +12,12 @@
 // CSimpleShlExt construction/destruction
 CSimpleShlExt::CSimpleShlExt()
 {
-    OSVERSIONINFOW OSVersionInfo;
-    OSVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOW);
-    GetVersionExW(&OSVersionInfo);
-    char tcMajorVersion[4];
-    sprintf_s(tcMajorVersion, "%lu", OSVersionInfo.dwMajorVersion);
-    long OSMajorVersion = strtoul(tcMajorVersion, NULL, 0);
+    OSVERSIONINFO OSVersionInfo;
+    OSVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+    GetVersionEx(&OSVersionInfo);
 
     m_hIconBmp = (HBITMAP)LoadBitmap ( _Module.GetModuleInstance(),
-        MAKEINTRESOURCE(OSMajorVersion < 6 ? IDB_ICONSMALLBMP : IDB_ICONLARGEBMP) );
+        MAKEINTRESOURCE(OSVersionInfo.dwMajorVersion < 6 ? IDB_ICONSMALLBMP : IDB_ICONLARGEBMP) );
     m_hIconBmp = MakeBitmapTransparent(m_hIconBmp);
 }
 
