@@ -55,26 +55,25 @@
             this.referringAssemblyBrowseFolderButton = new System.Windows.Forms.Button();
             this.referringAssemblyFolderSearchButton = new System.Windows.Forms.Button();
             this.referringAssembliesListtBox = new System.Windows.Forms.ListBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hideGACAssembliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showAssemblyFullNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DebuggableFlagsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
+            this.mnuView = new System.Windows.Forms.MenuItem();
+            this.mnuHideGACAssemblies = new System.Windows.Forms.MenuItem();
+            this.mnuShowAssemblyFullName = new System.Windows.Forms.MenuItem();
+            this.mnuHelp = new System.Windows.Forms.MenuItem();
+            this.mnuAbout = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCompilation
             // 
             this.lblCompilation.AutoSize = true;
             this.lblCompilation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblCompilation.Location = new System.Drawing.Point(10, 37);
+            this.lblCompilation.Location = new System.Drawing.Point(10, 11);
             this.lblCompilation.Name = "lblCompilation";
             this.lblCompilation.Size = new System.Drawing.Size(76, 13);
             this.lblCompilation.TabIndex = 0;
@@ -86,7 +85,7 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblFullName.Location = new System.Drawing.Point(10, 132);
+            this.lblFullName.Location = new System.Drawing.Point(10, 106);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(67, 13);
             this.lblFullName.TabIndex = 0;
@@ -111,13 +110,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 408);
+            this.panel1.Size = new System.Drawing.Size(816, 382);
             this.panel1.TabIndex = 2;
             // 
             // txtTrackingEnabled
             // 
             this.txtTrackingEnabled.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtTrackingEnabled.Location = new System.Drawing.Point(131, 34);
+            this.txtTrackingEnabled.Location = new System.Drawing.Point(131, 8);
             this.txtTrackingEnabled.Name = "txtTrackingEnabled";
             this.txtTrackingEnabled.ReadOnly = true;
             this.txtTrackingEnabled.Size = new System.Drawing.Size(47, 20);
@@ -127,7 +126,7 @@
             // txtOptimized
             // 
             this.txtOptimized.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtOptimized.Location = new System.Drawing.Point(179, 34);
+            this.txtOptimized.Location = new System.Drawing.Point(179, 8);
             this.txtOptimized.Name = "txtOptimized";
             this.txtOptimized.ReadOnly = true;
             this.txtOptimized.Size = new System.Drawing.Size(74, 20);
@@ -137,7 +136,7 @@
             // txtSequencing
             // 
             this.txtSequencing.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtSequencing.Location = new System.Drawing.Point(254, 34);
+            this.txtSequencing.Location = new System.Drawing.Point(254, 8);
             this.txtSequencing.Name = "txtSequencing";
             this.txtSequencing.ReadOnly = true;
             this.txtSequencing.Size = new System.Drawing.Size(94, 20);
@@ -147,7 +146,7 @@
             // txtEditAndContinue
             // 
             this.txtEditAndContinue.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtEditAndContinue.Location = new System.Drawing.Point(349, 34);
+            this.txtEditAndContinue.Location = new System.Drawing.Point(349, 8);
             this.txtEditAndContinue.Name = "txtEditAndContinue";
             this.txtEditAndContinue.ReadOnly = true;
             this.txtEditAndContinue.Size = new System.Drawing.Size(136, 20);
@@ -157,7 +156,7 @@
             // frameWorkVersion
             // 
             this.frameWorkVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frameWorkVersion.Location = new System.Drawing.Point(494, 34);
+            this.frameWorkVersion.Location = new System.Drawing.Point(494, 8);
             this.frameWorkVersion.Name = "frameWorkVersion";
             this.frameWorkVersion.ReadOnly = true;
             this.frameWorkVersion.Size = new System.Drawing.Size(199, 20);
@@ -167,7 +166,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 66);
+            this.label1.Location = new System.Drawing.Point(10, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 0;
@@ -177,7 +176,7 @@
             // 
             this.assemblyKindTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.assemblyKindTextBox.Location = new System.Drawing.Point(131, 63);
+            this.assemblyKindTextBox.Location = new System.Drawing.Point(131, 37);
             this.assemblyKindTextBox.Multiline = true;
             this.assemblyKindTextBox.Name = "assemblyKindTextBox";
             this.assemblyKindTextBox.ReadOnly = true;
@@ -189,7 +188,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 108);
+            this.label2.Location = new System.Drawing.Point(10, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 0;
@@ -199,7 +198,7 @@
             // 
             this.targetProcessorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.targetProcessorTextBox.Location = new System.Drawing.Point(131, 105);
+            this.targetProcessorTextBox.Location = new System.Drawing.Point(131, 79);
             this.targetProcessorTextBox.Name = "targetProcessorTextBox";
             this.targetProcessorTextBox.ReadOnly = true;
             this.targetProcessorTextBox.Size = new System.Drawing.Size(673, 20);
@@ -209,7 +208,7 @@
             // 
             this.txtFullName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFullName.Location = new System.Drawing.Point(131, 129);
+            this.txtFullName.Location = new System.Drawing.Point(131, 103);
             this.txtFullName.Multiline = true;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.ReadOnly = true;
@@ -220,7 +219,7 @@
             // 
             this.lblReferences.AutoSize = true;
             this.lblReferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblReferences.Location = new System.Drawing.Point(10, 172);
+            this.lblReferences.Location = new System.Drawing.Point(10, 146);
             this.lblReferences.Name = "lblReferences";
             this.lblReferences.Size = new System.Drawing.Size(76, 13);
             this.lblReferences.TabIndex = 0;
@@ -234,7 +233,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(131, 169);
+            this.tabControl1.Location = new System.Drawing.Point(131, 143);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -357,66 +356,54 @@
             this.referringAssembliesListtBox.TabIndex = 0;
             this.referringAssembliesListtBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssemblyListBoxMouseDoubleClick);
             // 
-            // menuStrip1
+            // mainMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(816, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuView,
+            this.mnuHelp});
             // 
-            // viewToolStripMenuItem
+            // mnuView
             // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hideGACAssembliesToolStripMenuItem,
-            this.showAssemblyFullNameToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.viewToolStripMenuItem.Text = "View";
+            this.mnuView.Index = 0;
+            this.mnuView.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuHideGACAssemblies,
+            this.mnuShowAssemblyFullName});
+            this.mnuView.Text = "View";
             // 
-            // hideGACAssembliesToolStripMenuItem
+            // mnuHideGACAssemblies
             // 
-            this.hideGACAssembliesToolStripMenuItem.Name = "hideGACAssembliesToolStripMenuItem";
-            this.hideGACAssembliesToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.hideGACAssembliesToolStripMenuItem.Text = "Hide GAC Assemblies";
-            this.hideGACAssembliesToolStripMenuItem.Click += new System.EventHandler(this.hideGACAssembliesToolStripMenuItem_Click);
+            this.mnuHideGACAssemblies.Index = 0;
+            this.mnuHideGACAssemblies.Text = "Hide GAC Assemblies";
+            this.mnuHideGACAssemblies.Click += new System.EventHandler(this.mnuHideGACAssemblies_Click);
             // 
-            // showAssemblyFullNameToolStripMenuItem
+            // mnuShowAssemblyFullName
             // 
-            this.showAssemblyFullNameToolStripMenuItem.Checked = true;
-            this.showAssemblyFullNameToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showAssemblyFullNameToolStripMenuItem.Name = "showAssemblyFullNameToolStripMenuItem";
-            this.showAssemblyFullNameToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.showAssemblyFullNameToolStripMenuItem.Text = "Show Assembly Full Name";
-            this.showAssemblyFullNameToolStripMenuItem.Click += new System.EventHandler(this.showAssemblyFullNameToolStripMenuItem_Click);
+            this.mnuShowAssemblyFullName.Checked = true;
+            this.mnuShowAssemblyFullName.Index = 1;
+            this.mnuShowAssemblyFullName.Text = "Show Assembly Full Name";
+            this.mnuShowAssemblyFullName.Click += new System.EventHandler(this.mnuShowAssemblyFullName_Click);
             // 
-            // helpToolStripMenuItem
+            // mnuHelp
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.mnuHelp.Index = 1;
+            this.mnuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuAbout});
+            this.mnuHelp.Text = "Help";
             // 
-            // aboutToolStripMenuItem
+            // mnuAbout
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+            this.mnuAbout.Index = 0;
+            this.mnuAbout.Text = "About";
+            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 408);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(816, 382);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.Menu = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(154, 110);
             this.Name = "FormMain";
             this.Text = ".NET Assembly Information";
@@ -430,10 +417,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -442,11 +426,8 @@
         private System.Windows.Forms.Label lblCompilation;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.TextBox txtTrackingEnabled;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label lblReferences;
         private System.Windows.Forms.TextBox txtOptimized;
         private System.Windows.Forms.ToolTip DebuggableFlagsToolTip;
@@ -467,9 +448,12 @@
         private System.Windows.Forms.Button referringAssemblyBrowseFolderButton;
         private System.Windows.Forms.ListBox referringAssembliesListtBox;
         private System.Windows.Forms.ListBox referenceListListBox;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hideGACAssembliesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showAssemblyFullNameToolStripMenuItem;
         private System.Windows.Forms.TextBox frameWorkVersion;
+        private System.Windows.Forms.MainMenu mainMenu;
+        private System.Windows.Forms.MenuItem mnuView;
+        private System.Windows.Forms.MenuItem mnuHideGACAssemblies;
+        private System.Windows.Forms.MenuItem mnuShowAssemblyFullName;
+        private System.Windows.Forms.MenuItem mnuHelp;
+        private System.Windows.Forms.MenuItem mnuAbout;
     }
 }

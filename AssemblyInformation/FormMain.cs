@@ -119,8 +119,8 @@ namespace AssemblyInformation
         {
 			foreach (var binary in dependencies)
             {
-                if(hideGACAssembliesToolStripMenuItem.Checked && binary.IsSystemBinary) continue;
-			    string assemblyName = showAssemblyFullNameToolStripMenuItem.Checked
+                if (mnuHideGACAssemblies.Checked && binary.IsSystemBinary) continue;
+			    string assemblyName = mnuShowAssemblyFullName.Checked
 			                              ? binary.FullName
 			                              : binary.DisplayName;
                 TreeNode node = new TreeNode(assemblyName);
@@ -177,7 +177,7 @@ namespace AssemblyInformation
             }
         }
 
-        private void AboutToolStripMenuItemClick(object sender, EventArgs e)
+        private void mnuAbout_Click(object sender, EventArgs e)
         {
             using (var about = new AboutBox())
             {
@@ -324,9 +324,9 @@ namespace AssemblyInformation
                 referenceListListBox.Items.Clear();
                 foreach (var dependency in recursiveDependencies)
                 {
-                    if (hideGACAssembliesToolStripMenuItem.Checked && dependency.IsSystemBinary)
+                    if (mnuHideGACAssemblies.Checked && dependency.IsSystemBinary)
                         continue;
-                    referenceListListBox.Items.Add(showAssemblyFullNameToolStripMenuItem.Checked?
+                    referenceListListBox.Items.Add(mnuShowAssemblyFullName.Checked ?
                         dependency.FullName:
                         dependency.DisplayName);
                 }
@@ -345,9 +345,9 @@ namespace AssemblyInformation
                 referenceListListBox.Items.Clear();
                 foreach (var dependency in recursiveDependencies) 
                 {
-                    if (hideGACAssembliesToolStripMenuItem.Checked && dependency.IsSystemBinary)
+                    if (mnuHideGACAssemblies.Checked && dependency.IsSystemBinary)
                         continue;
-                    referenceListListBox.Items.Add(showAssemblyFullNameToolStripMenuItem.Checked ?
+                    referenceListListBox.Items.Add(mnuShowAssemblyFullName.Checked ?
                         dependency.FullName :
                         dependency.DisplayName);
                 }
@@ -399,20 +399,18 @@ namespace AssemblyInformation
             }
         }
 
-        private void hideGACAssembliesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuHideGACAssemblies_Click(object sender, EventArgs e)
         {
-            hideGACAssembliesToolStripMenuItem.Checked = !hideGACAssembliesToolStripMenuItem.Checked;
+            mnuHideGACAssemblies.Checked = !mnuHideGACAssemblies.Checked;
             dependencyTreeView.Nodes.Clear();
             FillAssemblyReferences(directDependencies);
             if(recursiveDependencies != null)
                 FillRecursiveDependency();
         }
 
-        private void showAssemblyFullNameToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuShowAssemblyFullName_Click(object sender, EventArgs e)
         {
-            showAssemblyFullNameToolStripMenuItem.Checked =
-                !showAssemblyFullNameToolStripMenuItem.Checked;
-
+            mnuShowAssemblyFullName.Checked = !mnuShowAssemblyFullName.Checked;
             dependencyTreeView.Nodes.Clear();
             FillAssemblyReferences(directDependencies);
             if (recursiveDependencies != null)
