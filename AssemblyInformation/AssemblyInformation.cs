@@ -112,7 +112,19 @@ namespace AssemblyInformation
             List<TargetFrameworkAttribute> targetFrameworkAttributes = assemblyAttributes.OfType<TargetFrameworkAttribute>().ToList();
             if (targetFrameworkAttributes.Count == 0)
             {
-                FrameWorkVersion = ".NET CLR " + (Assembly.ImageRuntimeVersion.StartsWith("v", StringComparison.OrdinalIgnoreCase) && Assembly.ImageRuntimeVersion.Length > 1 ? Assembly.ImageRuntimeVersion.Substring(1) : Assembly.ImageRuntimeVersion);
+                string clrVersion = Assembly.ImageRuntimeVersion.StartsWith("v", StringComparison.OrdinalIgnoreCase) && Assembly.ImageRuntimeVersion.Length > 1 ? Assembly.ImageRuntimeVersion.Substring(1) : Assembly.ImageRuntimeVersion;
+                if (clrVersion.StartsWith("1.1", StringComparison.Ordinal))
+                {
+                    FrameWorkVersion = ".NET Framework 1.1";
+                }
+                else if (clrVersion.StartsWith("1.0", StringComparison.Ordinal))
+                {
+                    FrameWorkVersion = ".NET Framework 1.0";
+                }
+                else
+                {
+                    FrameWorkVersion = ".NET CLR " + clrVersion;
+                }
             }
             else
             {
