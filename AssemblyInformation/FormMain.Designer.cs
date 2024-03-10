@@ -262,6 +262,7 @@
             this.dependencyTreeView.Size = new System.Drawing.Size(669, 215);
             this.dependencyTreeView.TabIndex = 0;
             this.dependencyTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.DependencyTreeViewBeforeExpand);
+            this.dependencyTreeView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dependencyTreeView_KeyDown);
             this.dependencyTreeView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DependencyTreeViewMouseDoubleClick);
             // 
             // tabPage2
@@ -285,6 +286,7 @@
             this.referenceListListBox.Name = "referenceListListBox";
             this.referenceListListBox.Size = new System.Drawing.Size(663, 212);
             this.referenceListListBox.TabIndex = 0;
+            this.referenceListListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referenceListListBox_KeyDown);
             this.referenceListListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssemblyListBoxMouseDoubleClick);
             // 
             // tabPage3
@@ -321,11 +323,12 @@
             this.referringAssemblyFolderTextBox.Name = "referringAssemblyFolderTextBox";
             this.referringAssemblyFolderTextBox.Size = new System.Drawing.Size(558, 20);
             this.referringAssemblyFolderTextBox.TabIndex = 0;
+            this.referringAssemblyFolderTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referringAssemblyFolderTextBox_KeyDown);
             // 
             // referringAssemblyBrowseFolderButton
             // 
             this.referringAssemblyBrowseFolderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.referringAssemblyBrowseFolderButton.Location = new System.Drawing.Point(571, 21);
+            this.referringAssemblyBrowseFolderButton.Location = new System.Drawing.Point(571, 19);
             this.referringAssemblyBrowseFolderButton.Name = "referringAssemblyBrowseFolderButton";
             this.referringAssemblyBrowseFolderButton.Size = new System.Drawing.Size(25, 23);
             this.referringAssemblyBrowseFolderButton.TabIndex = 0;
@@ -336,7 +339,7 @@
             // referringAssemblyFolderSearchButton
             // 
             this.referringAssemblyFolderSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.referringAssemblyFolderSearchButton.Location = new System.Drawing.Point(602, 21);
+            this.referringAssemblyFolderSearchButton.Location = new System.Drawing.Point(602, 19);
             this.referringAssemblyFolderSearchButton.Name = "referringAssemblyFolderSearchButton";
             this.referringAssemblyFolderSearchButton.Size = new System.Drawing.Size(57, 23);
             this.referringAssemblyFolderSearchButton.TabIndex = 0;
@@ -354,6 +357,7 @@
             this.referringAssembliesListtBox.Name = "referringAssembliesListtBox";
             this.referringAssembliesListtBox.Size = new System.Drawing.Size(656, 160);
             this.referringAssembliesListtBox.TabIndex = 0;
+            this.referringAssembliesListtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referringAssembliesListtBox_KeyDown);
             this.referringAssembliesListtBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssemblyListBoxMouseDoubleClick);
             // 
             // mainMenu

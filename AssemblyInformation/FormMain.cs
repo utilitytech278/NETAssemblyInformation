@@ -211,7 +211,7 @@ namespace AssemblyInformation
             return false;
         }
 
-        private void DependencyTreeViewMouseDoubleClick(object sender, MouseEventArgs e)
+        private void DependencyTreeView_LoadDependency()
         {
             var node = dependencyTreeView.SelectedNode;
             if (null != node)
@@ -223,6 +223,20 @@ namespace AssemblyInformation
 			    }
 			}
 		}
+
+        private void DependencyTreeViewMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            DependencyTreeView_LoadDependency();
+        }
+
+        private void dependencyTreeView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && e.Modifiers == Keys.None)
+            {
+                DependencyTreeView_LoadDependency();
+                e.Handled = true;
+            }
+        }
 
         private static string LoadAssemblyInformationForAssembly(string assemblyName) 
         {
@@ -354,7 +368,7 @@ namespace AssemblyInformation
             }
 	    }
 
-	    private void referringAssemblyFolderSearchButton_Click(object sender, EventArgs e)
+	    private void ReferringAssemblyFolder_Search()
 		{
 			if (!referringAssemblyFolderTextBox.Text.IsNullOrWhiteSpace() &&
                 Directory.Exists(referringAssemblyFolderTextBox.Text))
@@ -378,6 +392,20 @@ namespace AssemblyInformation
 			}
 		}
 
+        private void referringAssemblyFolderSearchButton_Click(object sender, EventArgs e)
+        {
+            ReferringAssemblyFolder_Search();
+        }
+
+        private void referringAssemblyFolderTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && e.Modifiers == Keys.None)
+            {
+                ReferringAssemblyFolder_Search();
+                e.Handled = true;
+            }
+        }
+
         private void referringAssemblyBrowseFolderButton_Click(object sender, EventArgs e) 
         {
             FolderBrowserDialog dlg = new FolderBrowserDialog();
@@ -387,15 +415,37 @@ namespace AssemblyInformation
             }
         }
 
-        private void AssemblyListBoxMouseDoubleClick(object sender, MouseEventArgs e) 
+        private void AssemblyListBox_LoadAssembly(ListBox listBox)
         {
-            ListBox listBox = sender as ListBox;
             if (null == listBox || null == listBox.SelectedItem) return;
 
             var selectedAssembly = listBox.SelectedItem.ToString();
-            if (!selectedAssembly.Contains("ERROR")) 
+            if (!selectedAssembly.Contains("ERROR"))
             {
                 LoadAssemblyInformationForAssembly(selectedAssembly);
+            }
+        }
+
+        private void AssemblyListBoxMouseDoubleClick(object sender, MouseEventArgs e) 
+        {
+            AssemblyListBox_LoadAssembly(sender as ListBox);
+        }
+
+        private void referringAssembliesListtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && e.Modifiers == Keys.None)
+            {
+                AssemblyListBox_LoadAssembly(sender as ListBox);
+                e.Handled = true;
+            }
+        }
+
+        private void referenceListListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && e.Modifiers == Keys.None)
+            {
+                AssemblyListBox_LoadAssembly(sender as ListBox);
+                e.Handled = true;
             }
         }
 
