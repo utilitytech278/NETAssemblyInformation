@@ -68,6 +68,11 @@
                     "Name" = "8:Windows Installer 2.0"
                     "ProductCode" = "8:Microsoft.Windows.Installer.2.0"
                     }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
                 }
             }
         }
@@ -103,7 +108,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AssemblyInformation, Version=4.0.0.0, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:AssemblyInformation, Version=4.1.1.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_1AFB3C6175774D069AB20F261D853A17"
@@ -205,21 +210,21 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Assembly Information"
-        "ProductCode" = "8:{95473373-282E-4F7D-8509-C14DA1AC3494}"
-        "PackageCode" = "8:{389DE4F4-780E-4C71-BEA0-2C3BABE4D4D5}"
+        "ProductCode" = "8:{E3A2217F-7D5C-4F6C-80AD-A118902342E4}"
+        "PackageCode" = "8:{C0DE514C-5BB7-4164-B1A6-026626878E2F}"
         "UpgradeCode" = "8:{04A7D7C5-8749-4045-A034-4C65824AD8DD}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.0"
-        "Manufacturer" = "8:.NET Tools"
+        "ProductVersion" = "8:4.1.1"
+        "Manufacturer" = "8:utilitytech278"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:.NET Assembly Information"
-        "Subject" = "8:.NET Tools"
+        "Subject" = "8:"
         "ARPCONTACT" = "8:Rotem Bloom, Ashutosh Bhawasinka, utilitytech278"
-        "Keywords" = "8:.NET Tools"
+        "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://bitbucket.org/utilitytech278/workspace/projects/NAS"
         "ARPPRODUCTICON" = "8:_1AFB3C6175774D069AB20F261D853A17"
