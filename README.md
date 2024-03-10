@@ -11,6 +11,8 @@ It adds a context menu option labeled ".NET Assembly Information" that is displa
 3. Clarification when only the CLR (Common Language Runtime) version is able to be detected. Prior to this, it was incorrectly labeling the CLR version as a .NET Framework version.
 4. Assembly Kind: Detection of the use of Preferred32Bit.
 5. Target Processor: Detection of ARM.
+6. Pressing Enter with an assembly selected in any of the bottom lists will open the assembly, functioning as an alternative to double-clicking.
+7. Using a natively rendered menu bar.
 
 ## Screenshots
 ![Context Menu](readme/contextMenu.png)
