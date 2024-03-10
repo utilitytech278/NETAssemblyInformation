@@ -87,7 +87,7 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblFullName.Location = new System.Drawing.Point(10, 126);
+            this.lblFullName.Location = new System.Drawing.Point(10, 132);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(67, 13);
             this.lblFullName.TabIndex = 0;
@@ -168,11 +168,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 63);
+            this.label1.Location = new System.Drawing.Point(10, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Assembly Kind";
+            this.label1.Text = "Assembly Kind:";
             // 
             // assemblyKindTextBox
             // 
@@ -190,17 +190,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 100);
+            this.label2.Location = new System.Drawing.Point(10, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Target Processor";
+            this.label2.Text = "Target Processor:";
             // 
             // targetProcessorTextBox
             // 
             this.targetProcessorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.targetProcessorTextBox.Location = new System.Drawing.Point(132, 105);
+            this.targetProcessorTextBox.Location = new System.Drawing.Point(131, 105);
             this.targetProcessorTextBox.Name = "targetProcessorTextBox";
             this.targetProcessorTextBox.ReadOnly = true;
             this.targetProcessorTextBox.Size = new System.Drawing.Size(673, 20);
@@ -210,7 +210,7 @@
             // 
             this.txtFullName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFullName.Location = new System.Drawing.Point(131, 128);
+            this.txtFullName.Location = new System.Drawing.Point(131, 129);
             this.txtFullName.Multiline = true;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.ReadOnly = true;
@@ -221,7 +221,7 @@
             // 
             this.lblReferences.AutoSize = true;
             this.lblReferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblReferences.Location = new System.Drawing.Point(10, 168);
+            this.lblReferences.Location = new System.Drawing.Point(10, 172);
             this.lblReferences.Name = "lblReferences";
             this.lblReferences.Size = new System.Drawing.Size(76, 13);
             this.lblReferences.TabIndex = 0;
@@ -235,7 +235,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(131, 171);
+            this.tabControl1.Location = new System.Drawing.Point(131, 169);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
