@@ -110,7 +110,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 382);
+            this.panel1.Size = new System.Drawing.Size(784, 381);
             this.panel1.TabIndex = 2;
             // 
             // txtTrackingEnabled
@@ -181,7 +181,7 @@
             this.assemblyKindTextBox.Name = "assemblyKindTextBox";
             this.assemblyKindTextBox.ReadOnly = true;
             this.assemblyKindTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.assemblyKindTextBox.Size = new System.Drawing.Size(673, 38);
+            this.assemblyKindTextBox.Size = new System.Drawing.Size(641, 38);
             this.assemblyKindTextBox.TabIndex = 0;
             // 
             // label2
@@ -201,7 +201,7 @@
             this.targetProcessorTextBox.Location = new System.Drawing.Point(131, 79);
             this.targetProcessorTextBox.Name = "targetProcessorTextBox";
             this.targetProcessorTextBox.ReadOnly = true;
-            this.targetProcessorTextBox.Size = new System.Drawing.Size(673, 20);
+            this.targetProcessorTextBox.Size = new System.Drawing.Size(641, 20);
             this.targetProcessorTextBox.TabIndex = 0;
             // 
             // txtFullName
@@ -212,7 +212,7 @@
             this.txtFullName.Multiline = true;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(673, 36);
+            this.txtFullName.Size = new System.Drawing.Size(641, 36);
             this.txtFullName.TabIndex = 0;
             // 
             // lblReferences
@@ -237,7 +237,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(673, 237);
+            this.tabControl1.Size = new System.Drawing.Size(641, 236);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -247,7 +247,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(665, 211);
+            this.tabPage1.Size = new System.Drawing.Size(633, 210);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Direct References";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -259,7 +259,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dependencyTreeView.Location = new System.Drawing.Point(-3, 0);
             this.dependencyTreeView.Name = "dependencyTreeView";
-            this.dependencyTreeView.Size = new System.Drawing.Size(669, 215);
+            this.dependencyTreeView.Size = new System.Drawing.Size(637, 214);
             this.dependencyTreeView.TabIndex = 0;
             this.dependencyTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.DependencyTreeViewBeforeExpand);
             this.dependencyTreeView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dependencyTreeView_KeyDown);
@@ -404,7 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 382);
+            this.ClientSize = new System.Drawing.Size(784, 381);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu;
