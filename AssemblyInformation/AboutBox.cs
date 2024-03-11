@@ -101,5 +101,19 @@ namespace AssemblyInformation
             }
         }
         #endregion
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            Keys keyCode = keyData & Keys.KeyCode;
+            Keys modifiers = keyData & Keys.Modifiers;
+
+            if (keyCode == Keys.Escape && modifiers == Keys.None)
+            {
+                Close();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
