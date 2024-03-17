@@ -77,7 +77,7 @@ STDAPI DllRegisterServer()
             return E_ACCESSDENIED;
 
         lRet = reg.SetStringValue ( _T("SimpleShlExt extension"), 
-                                    _T("{8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C}") );
+                                    _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}") );
 
         if ( ERROR_SUCCESS != lRet )
             return E_ACCESSDENIED;
@@ -107,7 +107,7 @@ STDAPI DllUnregisterServer()
 
         if ( ERROR_SUCCESS == lRet )
         {
-            lRet = reg.DeleteValue ( _T("{8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C}") );
+            lRet = reg.DeleteValue ( _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}") );
         }
     }
 

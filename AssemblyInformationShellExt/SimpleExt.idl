@@ -27,7 +27,7 @@ library SIMPLEEXTLib
 	importlib("stdole2.tlb");
 
 	[
-		uuid(8AB81E72-CB2F-11D3-8D3B-AC2F34F1FA3C),
+		uuid(EA8AAA46-6980-4D88-AC1A-C0376E5D451A),
 		helpstring("SimpleShlExt Class")
 	]
 	coclass SimpleShlExt
