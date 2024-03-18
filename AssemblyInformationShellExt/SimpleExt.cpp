@@ -76,8 +76,8 @@ STDAPI DllRegisterServer()
         if ( ERROR_SUCCESS != lRet )
             return E_ACCESSDENIED;
 
-        lRet = reg.SetStringValue ( _T("SimpleShlExt extension"), 
-                                    _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}") );
+        lRet = reg.SetStringValue ( _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}"), 
+                                    _T(".NET Assembly Information Shell Extension") );
 
         if ( ERROR_SUCCESS != lRet )
             return E_ACCESSDENIED;
