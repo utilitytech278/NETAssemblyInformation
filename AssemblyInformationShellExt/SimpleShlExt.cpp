@@ -16,7 +16,7 @@ CSimpleShlExt::CSimpleShlExt()
     OSVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
     GetVersionEx(&OSVersionInfo);
 
-    m_hIconBmp = (HBITMAP)LoadBitmap ( _Module.GetModuleInstance(),
+    m_hIconBmp = LoadBitmap ( _Module.GetModuleInstance(),
         MAKEINTRESOURCE(OSVersionInfo.dwMajorVersion < 6 ? IDB_ICONSMALLBMP : IDB_ICONLARGEBMP) );
     m_hIconBmp = MakeBitmapTransparent(m_hIconBmp);
 }
