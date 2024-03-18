@@ -5,8 +5,7 @@
 HBITMAP MakeBitmapTransparent(HBITMAP hbmSrc)
 {
     HDC hdcSrc, hdcDst;
-    HBITMAP hbmOld;
-    HBITMAP    hbmNew;
+    HBITMAP hbmOld, hbmNew;
     BITMAP bm;
     COLORREF clrTP, clrBK;
 
