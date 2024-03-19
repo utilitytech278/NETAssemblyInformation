@@ -37,4 +37,16 @@ protected:
     HBITMAP m_hIconBmp;
 };
 
+/////////////////////////////////////////////////////////////////////////////
+// Strings
+
+#define ExtensionName                   _T(".NET Assembly Information Shell Extension")
+#define MenuItemText                    _T(".NET Assembly Information")
+#define HelpText                        _T("Displays information on how the selected file was built, if it is a .NET assembly.")
+#ifdef _M_X64
+#define ExecutableToRun                 _T("AssemblyInformationx64.exe")
+#else
+#define ExecutableToRun                 _T("AssemblyInformation.exe")
+#endif
+
 #endif //__SIMPLESHLEXT_H_

@@ -76,7 +76,7 @@ STDMETHODIMP CSimpleShlExt::QueryContextMenu (
     if ( uFlags & CMF_DEFAULTONLY )
         return MAKE_HRESULT ( SEVERITY_SUCCESS, FACILITY_NULL, 0 );
 
-    InsertMenu ( hmenu, uMenuIndex, MF_BYPOSITION, uidFirstCmd, _T(".NET Assembly Information") );
+    InsertMenu ( hmenu, uMenuIndex, MF_BYPOSITION, uidFirstCmd, MenuItemText );
 
     // Set the menu item's icon.
     SetMenuItemBitmaps ( hmenu, uMenuIndex, MF_BYPOSITION, m_hIconBmp, NULL );
@@ -97,18 +97,16 @@ STDMETHODIMP CSimpleShlExt::GetCommandString (
     // supplied buffer.
     if ( uFlags & GCS_HELPTEXT )
     {
-        LPCTSTR szText = _T("Displays information on how the selected file was built, if it is a .NET assembly.");
-
         if ( uFlags & GCS_UNICODE )
         {
             // We need to cast pszName to a Unicode string, and then use the
             // Unicode string copy API.
-            lstrcpynW ( (LPWSTR) pszName, T2CW(szText), cchMax );
+            lstrcpynW ( (LPWSTR) pszName, T2CW(HelpText), cchMax );
         }
         else
         {
             // Use the ANSI string copy API to return the help string.
-            lstrcpynA ( pszName, T2CA(szText), cchMax );
+            lstrcpynA ( pszName, T2CA(HelpText), cchMax );
         }
 
         return S_OK;
@@ -123,12 +121,6 @@ HMODULE GetCurrentModule()
     GetModuleHandleExA_new(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (LPCSTR)GetCurrentModule, &hModule);
     return hModule;
 }
-
-#ifdef _M_X64
-#define ASSEMBLY_INFORMATION_EXE _T("AssemblyInformationx64.exe")
-#else
-#define ASSEMBLY_INFORMATION_EXE _T("AssemblyInformation.exe")
-#endif
 
 STDMETHODIMP CSimpleShlExt::InvokeCommand ( LPCMINVOKECOMMANDINFO pCmdInfo )
 {
@@ -148,7 +140,7 @@ STDMETHODIMP CSimpleShlExt::InvokeCommand ( LPCMINVOKECOMMANDINFO pCmdInfo )
 
             // Set the path to the main executable.
             TCHAR exePath[MAX_PATH];
-            PathCombine(exePath, dllPath, ASSEMBLY_INFORMATION_EXE);
+            PathCombine(exePath, dllPath, ExecutableToRun);
 
             // Add quotes to the path of the main executable so that it can be passed to ShellExecute.
             TCHAR exePathQuotes[MAX_PATH + 4] = _T("\"");
