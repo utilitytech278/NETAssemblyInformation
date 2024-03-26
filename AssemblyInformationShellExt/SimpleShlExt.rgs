@@ -2,11 +2,11 @@ HKCR
 {
     NoRemove CLSID
     {
-        ForceRemove {EA8AAA46-6980-4D88-AC1A-C0376E5D451A} = s 'SimpleShlExt Class'
+        ForceRemove '%CLSID%' = s '%DESCRIPTION%'
         {
             InprocServer32 = s '%MODULE%'
             {
-                val ThreadingModel = s 'Apartment'
+                val ThreadingModel = s '%THREADING%'
             }
         }
     }
@@ -16,7 +16,7 @@ HKCR
         {
             NoRemove ContextMenuHandlers
             {
-                ForceRemove SimpleShlExt = s '{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}'
+                ForceRemove '%PROGID%' = s '%CLSID%'
             }
         }
     }
@@ -26,7 +26,29 @@ HKCR
         {
             NoRemove ContextMenuHandlers
             {
-                ForceRemove SimpleShlExt = s '{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}'
+                ForceRemove '%PROGID%' = s '%CLSID%'
+            }
+        }
+    }
+}
+HKEY_LOCAL_MACHINE
+{
+    NoRemove Software
+    {
+        NoRemove Microsoft
+        {
+            NoRemove Windows
+            {
+                NoRemove CurrentVersion
+                {
+                    NoRemove 'Shell Extensions'
+                    {
+                        NoRemove Approved
+                        {
+                            ForceRemove val '%CLSID%' = s '%DESCRIPTION%'
+                        }
+                    }
+                }
             }
         }
     }

@@ -55,35 +55,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
 
 STDAPI DllRegisterServer()
 {
-    // If we're on NT, add ourselves to the list of approved shell extensions.
-
-    // Note that you should *NEVER* use the overload of CRegKey::SetValue with
-    // 4 parameters.  It lets you set a value in one call, without having to 
-    // call CRegKey::Open() first.  However, that version of SetValue() has a
-    // bug in that it requests KEY_ALL_ACCESS to the key.  That will fail if the
-    // user is not an administrator.  (The code should request KEY_WRITE, which
-    // is all that's necessary.)
-
-    if ( 0 == (GetVersion() & 0x80000000UL) )
-    {
-        CRegKey reg;
-        LONG    lRet;
-
-        lRet = reg.Open ( HKEY_LOCAL_MACHINE,
-                          _T("Software\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Approved"),
-                          KEY_SET_VALUE );
-
-        if ( ERROR_SUCCESS != lRet )
-            return E_ACCESSDENIED;
-
-        lRet = reg.SetStringValue ( _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}"),
-                                    ExtensionName );
-
-        if ( ERROR_SUCCESS != lRet )
-            return E_ACCESSDENIED;
-    }
-
-    // registers object, typelib and all interfaces in typelib
+    // Registers object, typelib and all interfaces in typelib
     return _Module.RegisterServer(FALSE);
 }
 
@@ -92,24 +64,6 @@ STDAPI DllRegisterServer()
 
 STDAPI DllUnregisterServer()
 {
-    // If we're on NT, remove ourselves from the list of approved shell extensions.
-    // Note that if we get an error along the way, I don't bail out since I want
-    // to do the normal ATL unregistration stuff too.
-
-    if ( 0 == (GetVersion() & 0x80000000UL) )
-    {
-        CRegKey reg;
-        LONG    lRet;
-
-        lRet = reg.Open ( HKEY_LOCAL_MACHINE,
-                          _T("Software\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Approved"),
-                          KEY_SET_VALUE );
-
-        if ( ERROR_SUCCESS == lRet )
-        {
-            lRet = reg.DeleteValue ( _T("{EA8AAA46-6980-4D88-AC1A-C0376E5D451A}") );
-        }
-    }
-
+    // Unregisters object, typelib and all interfaces in typelib
     return _Module.UnregisterServer(FALSE);
 }
