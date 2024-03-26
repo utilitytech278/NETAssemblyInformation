@@ -8,7 +8,7 @@ import "oaidl.idl";
 import "ocidl.idl";
 [
 	object,
-	uuid(9A4279DB-B18B-4BA5-AA50-7314AA73B634),
+	uuid(F751F669-CD9D-4507-9934-7B577027A5AF),
 	dual,
 	helpstring("ISimpleShlExt Interface"),
 	pointer_default(unique)
@@ -17,7 +17,7 @@ interface ISimpleShlExt : IDispatch
 {
 };
 [
-	uuid(B19979D1-BA8C-4385-9CAA-013190B7F3D9),
+	uuid(DBC3656E-D4E1-40A9-8EF6-4A6B9A94B7AF),
 	version(1.0),
 	helpstring("SimpleExt 1.0 Type Library")
 ]
