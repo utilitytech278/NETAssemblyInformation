@@ -16,8 +16,8 @@ struct _ATL_REGMAP_ENTRYKeeper : public _ATL_REGMAP_ENTRY
 	{
 		szKey=key;
 		LPOLESTR newData;
-		szData = LPCOLESTR(newData =  new wchar_t[wcslen(data)+1]);
-		wcscpy(newData,data);
+		szData = LPCOLESTR(newData = new wchar_t[wcslen(data)+1]);
+		wcscpy_s(newData, RSIZE_MAX, data);
 	}
 	_ATL_REGMAP_ENTRYKeeper(LPCOLESTR key, UINT resid)
 	{
@@ -25,22 +25,22 @@ struct _ATL_REGMAP_ENTRYKeeper : public _ATL_REGMAP_ENTRY
 		USES_CONVERSION;
 
 		szKey=key;
-		if( 0 == LoadStringW(_pModule->m_hInstResource, resid, Data, 255))
+		if(0 == LoadStringW(_pModule->m_hInstResource, resid, Data, 255))
 		{
 			*Data = '\0';
 		}
 
-		int	length = wcslen(Data);
+		size_t length = wcslen(Data);
 
 		szData = new wchar_t[length];
-		wcscpy(const_cast<wchar_t *>(szData),Data);
+		wcscpy_s(const_cast<wchar_t *>(szData), RSIZE_MAX, Data);
 	}
 
 	_ATL_REGMAP_ENTRYKeeper(LPCOLESTR key, REFGUID guid) 
 	{
 		szKey=key;
 		LPOLESTR newData;
-		szData = LPCOLESTR(newData =  new wchar_t[40]);
+		szData = LPCOLESTR(newData = new wchar_t[40]);
 		if(szData!=NULL)
 		{
 			if(0==StringFromGUID2(guid, newData,40))
