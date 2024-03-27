@@ -284,7 +284,7 @@
             this.referenceListListBox.FormattingEnabled = true;
             this.referenceListListBox.Location = new System.Drawing.Point(0, 0);
             this.referenceListListBox.Name = "referenceListListBox";
-            this.referenceListListBox.Size = new System.Drawing.Size(630, 212);
+            this.referenceListListBox.Size = new System.Drawing.Size(631, 212);
             this.referenceListListBox.TabIndex = 0;
             this.referenceListListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referenceListListBox_KeyDown);
             this.referenceListListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssemblyListBoxMouseDoubleClick);
@@ -307,7 +307,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Location = new System.Drawing.Point(6, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(313, 13);
             this.label3.TabIndex = 0;
@@ -321,14 +321,14 @@
             this.referringAssemblyFolderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
             this.referringAssemblyFolderTextBox.Location = new System.Drawing.Point(7, 21);
             this.referringAssemblyFolderTextBox.Name = "referringAssemblyFolderTextBox";
-            this.referringAssemblyFolderTextBox.Size = new System.Drawing.Size(526, 20);
+            this.referringAssemblyFolderTextBox.Size = new System.Drawing.Size(523, 20);
             this.referringAssemblyFolderTextBox.TabIndex = 0;
             this.referringAssemblyFolderTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referringAssemblyFolderTextBox_KeyDown);
             // 
             // referringAssemblyBrowseFolderButton
             // 
             this.referringAssemblyBrowseFolderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.referringAssemblyBrowseFolderButton.Location = new System.Drawing.Point(539, 19);
+            this.referringAssemblyBrowseFolderButton.Location = new System.Drawing.Point(537, 19);
             this.referringAssemblyBrowseFolderButton.Name = "referringAssemblyBrowseFolderButton";
             this.referringAssemblyBrowseFolderButton.Size = new System.Drawing.Size(25, 23);
             this.referringAssemblyBrowseFolderButton.TabIndex = 0;
@@ -339,7 +339,7 @@
             // referringAssemblyFolderSearchButton
             // 
             this.referringAssemblyFolderSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.referringAssemblyFolderSearchButton.Location = new System.Drawing.Point(570, 19);
+            this.referringAssemblyFolderSearchButton.Location = new System.Drawing.Point(568, 19);
             this.referringAssemblyFolderSearchButton.Name = "referringAssemblyFolderSearchButton";
             this.referringAssemblyFolderSearchButton.Size = new System.Drawing.Size(57, 23);
             this.referringAssemblyFolderSearchButton.TabIndex = 0;
@@ -353,9 +353,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.referringAssembliesListtBox.FormattingEnabled = true;
-            this.referringAssembliesListtBox.Location = new System.Drawing.Point(7, 47);
+            this.referringAssembliesListtBox.Location = new System.Drawing.Point(7, 46);
             this.referringAssembliesListtBox.Name = "referringAssembliesListtBox";
-            this.referringAssembliesListtBox.Size = new System.Drawing.Size(620, 160);
+            this.referringAssembliesListtBox.Size = new System.Drawing.Size(617, 160);
             this.referringAssembliesListtBox.TabIndex = 0;
             this.referringAssembliesListtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.referringAssembliesListtBox_KeyDown);
             this.referringAssembliesListtBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssemblyListBoxMouseDoubleClick);
