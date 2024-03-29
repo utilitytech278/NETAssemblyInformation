@@ -40,8 +40,12 @@ public:
     STDMETHODIMP InvokeCommand(LPCMINVOKECOMMANDINFO);
     STDMETHODIMP QueryContextMenu(HMENU, UINT, UINT, UINT, UINT);
 
+    void UnlockAndReleaseStgMedium();
+
 protected:
-    TCHAR m_szFile [MAX_PATH];
+    STGMEDIUM m_stgMedium;
+    HDROP m_hDrop;
+    UINT m_uNumFiles;
     HBITMAP m_hIconBmp;
 };
 
