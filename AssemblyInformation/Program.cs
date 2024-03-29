@@ -20,6 +20,18 @@ namespace AssemblyInformation
             if (args.Length == 1)
             {
                 string filePath = args.GetValue(0).ToString();
+
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show(string.Format(Resource.FileDoesNotExist, filePath), Resource.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!Platform.IsAssembly(filePath))
+                {
+                    MessageBox.Show(string.Format(Resource.NotDotNetAssembly, filePath), Resource.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string assemblyullName = Path.GetFullPath(filePath);
                 bool? is64Bit = Platform.Is64BitAssembly(filePath);
                 bool filePathIs64Bit = (is64Bit.HasValue && is64Bit.Value);

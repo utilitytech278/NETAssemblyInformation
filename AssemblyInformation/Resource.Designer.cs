@@ -106,7 +106,7 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to locate file {0}.
+        ///   Looks up a localized string similar to Failed to locate file &apos;{0}&apos;..
         /// </summary>
         internal static string FailedToLocateFile {
             get {
@@ -115,7 +115,16 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to load DLL.  Error: {0}.
+        ///   Looks up a localized string similar to The file &apos;{0}&apos; does not exist..
+        /// </summary>
+        internal static string FileDoesNotExist {
+            get {
+                return ResourceManager.GetString("FileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load DLL. Error: {0}.
         /// </summary>
         internal static string LoadError {
             get {
@@ -124,7 +133,7 @@ namespace AssemblyInformation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The assembly &apos;{0}&apos; is not a .NET assembly. .NET Assembly Information supports only .NET assemblies/binaries..
+        ///   Looks up a localized string similar to The file &apos;{0}&apos; is not a .NET assembly. .NET Assembly Information supports only .NET assemblies/binaries..
         /// </summary>
         internal static string NotDotNetAssembly {
             get {

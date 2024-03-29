@@ -99,6 +99,31 @@ namespace AssemblyInformation
 
     class Platform 
     {
+        // Adapted from https://stackoverflow.com/a/6309893
+        public static bool IsAssembly(string filePath)
+        {
+            using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+                using (var br = new BinaryReader(fs))
+                {
+                    byte[] header = br.ReadBytes(2); // Read MZ
+                    if (header[0] != (byte)'M' && header[1] != (byte)'Z')
+                        return false;
+
+                    fs.Seek(64 - 4, SeekOrigin.Begin); // Read elf_new this is the offset where the IMAGE_NT_HEADER begins
+                    int offset = br.ReadInt32();
+                    fs.Seek(offset, SeekOrigin.Begin);
+                    header = br.ReadBytes(2);
+                    if (header[0] != (byte)'P' && header[1] != (byte)'E')
+                        return false;
+
+                    fs.Seek(20, SeekOrigin.Current); // Point to last word of IMAGE_FILE_HEADER
+                    short readInt16 = br.ReadInt16();
+                    return (readInt16 & 0x2000) == 0x2000 || (readInt16 & 0x0002) == 0x0002; // True when this is a DLL or an EXE.
+                }
+            }
+        }
+
         public static MachineType GetDllMachineType(string dllPath) 
         {
             //see http://www.microsoft.com/whdc/system/platform/firmware/PECOFF.mspx
@@ -107,25 +132,23 @@ namespace AssemblyInformation
             //followed by 2-byte machine type field (see document above for enum)
             using (var fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read)) 
             {
-                var br = new BinaryReader(fs);
-                fs.Seek(0x3c, SeekOrigin.Begin);
-                Int32 peOffset = br.ReadInt32();
-                fs.Seek(peOffset, SeekOrigin.Begin);
-                UInt32 peHead = br.ReadUInt32();
-                if (peHead != 0x00004550) // "PE\0\0", little-endian
-                    throw new BadImageFormatException("Unable to determine the assembly's type. Can't find PE header");
-                var machineType = (MachineType)br.ReadUInt16();
-                br.Close();
-                fs.Close();
-                return machineType;
+                using (var br = new BinaryReader(fs))
+                {
+                    fs.Seek(0x3c, SeekOrigin.Begin);
+                    Int32 peOffset = br.ReadInt32();
+                    fs.Seek(peOffset, SeekOrigin.Begin);
+                    UInt32 peHead = br.ReadUInt32();
+                    if (peHead != 0x00004550) // "PE\0\0", little-endian
+                        throw new BadImageFormatException("Unable to determine the assembly's type. Can't find PE header");
+                    var machineType = (MachineType)br.ReadUInt16();
+                    return machineType;
+                }
             }
         }
 
         /// <summary>
         /// returns true if the dll is 64-bit, false if 32-bit, and null if unknown
         /// </summary>
-        /// <param name="dllPath"></param>
-        /// <returns></returns>
         public static bool? Is64BitAssembly(string dllPath) 
         {
             switch (GetDllMachineType(dllPath)) 
