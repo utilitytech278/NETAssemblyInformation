@@ -135,13 +135,12 @@ namespace AssemblyInformation
                 using (var br = new BinaryReader(fs))
                 {
                     fs.Seek(0x3c, SeekOrigin.Begin);
-                    Int32 peOffset = br.ReadInt32();
+                    int peOffset = br.ReadInt32();
                     fs.Seek(peOffset, SeekOrigin.Begin);
-                    UInt32 peHead = br.ReadUInt32();
+                    uint peHead = br.ReadUInt32();
                     if (peHead != 0x00004550) // "PE\0\0", little-endian
                         throw new BadImageFormatException("Unable to determine the assembly's type. Can't find PE header");
-                    var machineType = (MachineType)br.ReadUInt16();
-                    return machineType;
+                    return (MachineType)br.ReadUInt16();
                 }
             }
         }

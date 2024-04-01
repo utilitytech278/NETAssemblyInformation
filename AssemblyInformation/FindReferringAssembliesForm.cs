@@ -17,7 +17,7 @@ namespace AssemblyInformation
         public string DirectoryPath { get; set; }
         public bool Recursive { get; set; }
 
-        private bool cancel = false;
+        private bool cancel;
         public IEnumerable<string> ReferringAssemblies { get; set; }
         public FindReferringAssembliesForm() 
         {

@@ -246,7 +246,7 @@ namespace AssemblyInformation
                     retryCount++;
                     try
                     {
-                        Assembly assembly = null;
+                        Assembly assembly;
                         if (!File.Exists(assemblyName))
                         {
                             assembly = Assembly.Load(assemblyName);
@@ -324,7 +324,7 @@ namespace AssemblyInformation
             {
                 DependencyWalker dependencyWalker = new DependencyWalker();
                 List<string> errors;
-                System.Windows.Forms.Cursor existingCursor = Cursor;
+                Cursor existingCursor = Cursor;
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;

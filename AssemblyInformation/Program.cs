@@ -86,8 +86,7 @@ namespace AssemblyInformation
                         else
                             psi.Arguments = string.Format("\"{0}\"", assemblyullName);
                         psi.UseShellExecute = true;
-                        var process = Process.Start(psi);
-                        //process.WaitForExit();
+                        Process.Start(psi);
                     }
                 }
                 catch (Exception ex)
