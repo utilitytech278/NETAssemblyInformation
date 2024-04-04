@@ -3,7 +3,7 @@
 This is a fork and enhancement of the project originally hosted at [https://assemblyinformation.codeplex.com/](https://assemblyinformation.codeplex.com/) ([archive](https://web.archive.org/web/20171223025233/https://assemblyinformation.codeplex.com/) | [mirror](https://codeplexarchive.org/codeplex/project/AssemblyInformation)).
 
 ## Purpose
-It adds a context menu option labeled ".NET Assembly Information" that is displayed when right-clicking EXE and DLL files. Selecting it will display build information if the file is a .NET assembly. At a glance you can see things such as the .NET version used, whether it was built in release or debug, references, and more. See the screenshots below for a better idea of the information offered.
+Adds a context menu option labeled ".NET Assembly Information" that is displayed when right-clicking EXE and DLL files. Selecting it will display build information if the file is a .NET assembly. At a glance you can see things such as the .NET version used, whether it was built in release or debug, references, and more. See the screenshots below for a better idea of the information offered.
 
 ## New Features in this Fork
 1. Support for all versions of the .NET Framework (only 4.0 and below were supported before) and all versions of .NET Standard. .NET Core and .NET 5+ are still not supported, however.
@@ -13,6 +13,15 @@ It adds a context menu option labeled ".NET Assembly Information" that is displa
 5. Target Processor: Detection of ARM.
 6. Pressing Enter with an assembly selected in any of the bottom lists will open the assembly, functioning as an alternative to double-clicking.
 7. Using a natively rendered menu bar.
+
+## Build Instructions
+1. Open AssemblyInformation.sln.
+2. In the properties for the AssemblyInformationX86 project, change the Target Framework to .NET Framework 2.0.
+3. Ensure that you are set to Release mode and Build.
+4. In bin\Release create a new subfolder named NET20 and copy AssemblyInformat.exe into it.
+5. In the properties for the AssemblyInformationX86 project, change the Target Framework back to .NET Framework 4.0 Client Profile.
+6. Ensure that you are set to Release mode and Build.
+7. Open AssemblyInformationSetup.sln in Visual Studio 2005 and build. This will create the installers in the Setup folder.
 
 ## Screenshots
 ![Context Menu](readme/contextMenu.png)
