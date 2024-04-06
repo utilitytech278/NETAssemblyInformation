@@ -15,13 +15,17 @@ Adds a context menu option labeled ".NET Assembly Information" that is displayed
 7. Using a natively rendered menu bar.
 
 ## Build Instructions
-1. Open AssemblyInformation.sln.
-2. In the properties for the AssemblyInformationX86 project, change the Target Framework to .NET Framework 2.0.
-3. Ensure that you are set to Release mode and Build.
-4. In bin\Release create a new subfolder named NET20 and copy AssemblyInformat.exe into it.
-5. In the properties for the AssemblyInformationX86 project, change the Target Framework back to .NET Framework 4.0 Client Profile.
-6. Ensure that you are set to Release mode and Build.
-7. Open AssemblyInformationSetup.sln in Visual Studio 2005 and build. This will create the installers in the Setup folder.
+Note: Where Visual Studio 2005 is called for, it should be possible to use newer versions, but support for older versions of Windows will be lost.
+
+1. (Optional) Update all occurrences of the version number in AssemblyInfo.cs and the three .vdproj files.
+2. Open AssemblyInformation.sln in Visual Studio 2010 or newer.
+3. In the properties for the AssemblyInformationX86 project, change the Target Framework to .NET Framework 2.0.
+4. Ensure that you are set to Release mode and Build.
+5. In bin\Release create a new subfolder named NET20 and copy AssemblyInformat.exe into it.
+6. In the properties for the AssemblyInformationX86 project, change the Target Framework back to .NET Framework 4 Client Profile.
+7. Ensure that you are set to Release mode and Build.
+8. (Optional) Rebuild the shell extension by opening AssemblyInformationShellExt.sln in Visual Studio 2005 and building both Win32 and x64 separately in Release mode.
+9. Open AssemblyInformationSetup.sln in Visual Studio 2005 and build. This will create the installers in the Setup folder.
 
 ## Screenshots
 ![Context Menu](readme/contextMenu.png)
